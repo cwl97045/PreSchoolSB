@@ -9,6 +9,7 @@ app.configure(function (){
 
 app.get('/', users.findAll);
 app.post('/user', users.createUser);
+app.get('/search/users/:query', users.searchUsersByName);
 
 app.listen(3000);
 

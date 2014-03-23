@@ -19,3 +19,7 @@ exports.createUser = function (firstName, lastName ,username, password, age, sex
   	error.invalidFields(res);
   }
 };
+
+exports.searchUsersByName = function (query, res){
+	userDAO.searchUsersByName(query, res);
+};

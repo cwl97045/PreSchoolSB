@@ -34,3 +34,16 @@ exports.getAll = function (res) {
 		res.send({ users : JSON.parse(JSON.stringify(result))});
 	});
 };
+
+
+exports.searchUsersByName = function (query, res){
+	connection.query('SELECT * FROM users WHERE firstname LIKE ?', query, function (err, results){
+		if(err){
+			var error = JSON.parse(JSON.stringify(err));
+			res.send({status : '300', Message : error['code']});
+		} else {
+			var values = JSON.parse(JSON.stringify(results));
+			res.send({status : '200', Results : values});
+		}
+	});
+};

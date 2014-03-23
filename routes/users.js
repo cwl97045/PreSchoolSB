@@ -17,3 +17,12 @@ exports.createUser = function (req, res) {
 		error.invalidFields(res);
 	}
 };
+
+exports.searchUsersByName = function (req, res){
+	var query = req.param("query");
+	if(query){
+		userServices.searchUsersByName(query, res);
+	} else {
+		error.invalidQuery(res);
+	}
+};
