@@ -2,7 +2,8 @@
 //
 var userModel = require('../models/user'),
 userDAO = require('../DAO/userDAO'),
-error = require('../utility/errors');
+error = require('../utility/errors'),
+hash = require('sha1');
 
 /*Gets all users from database*/
 
@@ -12,7 +13,9 @@ exports.getAll = function (res) {
 
 /*Creates user */
 exports.createUser = function (firstName, lastName ,username, password, age, sex, location, res) {
-  var newUser = new userModel.user(username, firstName, lastName, password, age, sex, location);
+  var salt = new Date();
+  var saltedPassword = hash(password + salt.getMilliseconds());
+  var newUser = new userModel.user(username, firstName, lastName, saltedPassword, age, sex, location, salt.getMilliseconds());
   if(newUser){
   	userDAO.createUser(newUser, res);
   } else {

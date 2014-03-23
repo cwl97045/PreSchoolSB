@@ -1,6 +1,7 @@
 var express = require('express'),
   users = require('./routes/users'),
-  mysql = require('mysql');
+  mysql = require('mysql'),
+  auth = require('./routes/auth');
 
 var app = express();
 app.configure(function (){
@@ -8,6 +9,7 @@ app.configure(function (){
 });
 
 app.get('/', users.findAll);
+app.post('/login', auth.login);
 app.post('/user', users.createUser);
 app.get('/search/users/:query', users.searchUsersByName);
 
