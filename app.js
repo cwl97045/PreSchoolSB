@@ -4,11 +4,24 @@ var express = require('express'),
   auth = require('./routes/auth');
 
 var app = express();
+
+/*var allowCrossDomain = function (req, res, next){
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+	res.header('Access-Control-Allow-Headers', 'Content-Type');
+};*/	
+
 app.configure(function (){
+	app.use(express.static(__dirname + '/public'));
 	app.use(express.json());
+	//app.use(allowCrossDomain);
 });
 
-app.get('/', users.findAll);
+/* initial get should return SPA App*/
+
+app.get('/', function (req, res){
+	res.sendfile('./public/index.html');
+});
 app.post('/login', auth.login);
 app.post('/user', users.createUser);
 app.get('/search/users/:query', users.searchUsersByName);
