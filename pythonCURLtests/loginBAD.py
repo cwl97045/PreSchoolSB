@@ -1,0 +1,11 @@
+import urllib
+import urllib2
+
+url = "http://localhost:3000/login"
+data = '{"username" : "cwl9745", "password" :"fa"}'
+head = {'Content-Type' : 'application/json'}
+req = urllib2.Request(url, data, head)
+response = urllib2.urlopen(req)
+page = response.read()
+print page
+	

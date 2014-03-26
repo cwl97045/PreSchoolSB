@@ -11,6 +11,7 @@ exports.createUser = function (req, res) {
 	username = req.body.username, password = req.body.password,
 	age = req.body.age, sex = req.body.sex, 
 	location = req.body.location;
+
 	if (username && lastName && firstName && password && age && sex && location){ 
 	  userServices.createUser(firstName, lastName, username, password, age, sex,location, res);
 	} else {

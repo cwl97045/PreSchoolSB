@@ -1,6 +1,7 @@
 var guid = require('guid'),
 userDAO = require('../DAO/userDAO'),
-hash = require('sha1');
+hash = require('sha1'),
+error = require('../utility/errors');
 
 exports.authenticate = function (username, password, res) {
 	userDAO.getUserByUserName(username, res, function (user){
@@ -9,8 +10,7 @@ exports.authenticate = function (username, password, res) {
 			var newAuthToken = guid.create();
 			userDAO.setAuth(user , newAuthToken, res);
 		} else {
-			//invalid Password error
-			console.log('nah');
+			error.authFail(res);
 		}
 	});
 };
