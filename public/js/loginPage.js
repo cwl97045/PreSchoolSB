@@ -1,47 +1,26 @@
-$(document).ready(function (){
-	//init function 
-	$('#registerForm').hide();
-	$('#login').click(function (){
-		var loginInfo = {username : $('[name="loguser"]').val(), password : $('[name="logpass"]').val()};
-		var loginUser = ajaxCall('POST', '/login', loginInfo);
-		loginUser.done(function(data){
-			console.log(data);
-		});
-	});
-	//Either switch to a SPA or change this to one function between both buttons
-	$('#register').click(function (){
-		$('#loginForm').hide();
-		$('#registerForm').show();
-	});
-	$('#back').click(function (){
-		$('#loginForm').show();
-		$('#registerForm').hide();
-	});
+$(document).ready(function () {
+  loginPage.init();
+  $('#login').click(function () {
+    var loginInfo = loginPage.getLoginInfo('[name="loguser"]', '[name="logpass"]'),
+      loginUser = loginPage.ajaxCall('POST', '/login', loginInfo);
+    loginUser.done(function (data) {
+      console.log(data);
+    });
+  });
+  $('#register').click(function () {
+    loginPage.showHide('#registerForm', '#loginForm');
+  });
+  $('#back').click(function () {
+    loginPage.showHide('#loginForm', '#registerForm');
+  });
+  $('#registerSubmit').click(function () {
+    var newUser = user.newUser('[name="username"]', '[name="firstName"]','[name="lastName"]',
+	'[name="age"]', '[name="password"]','[name="conPassword"]', '[name="gender"]:checked', '[name="location"]');
+    console.log(newUser);
 
-	$('#registerSubmit').click(function (){
-		//define user else where and make constructor
-		var user = { 
-			username : $('[name="username"]').val(),
-			firstName : $('[name="firstName"]').val(),
-			lastName : $('[name="lastName"]').val(),
-			password : $('[name="password"]').val(),
-			//conPassword : $('[name="conPassword"]').val(),
-			sex : $('[name="gender"]:checked').val(),
-			location : $('[name="location"]').val(),
-			age : $('[name="age"]').val()
-		};
-		/*$.ajax({
-			type:"POST",
-			url:"/user",
-			data : user,
-			dataType:"json"
-		}).done(function ( data ) {
-			console.log(data);
-		});*/
-		var registerUser = ajaxCall('POST', '/user', user);
-		registerUser.done(function( data ){
-			console.log(data);
-		});
-	
-	});
+    var registerUser = loginPage.ajaxCall('POST', '/user', newUser);
+    registerUser.done(function (data) {
+      console.log(data);
+    });
+  });
 });
