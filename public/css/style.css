@@ -1,0 +1,11 @@
+input {
+	border :0;
+}
+
+.fieldError {
+	border:.2px solid #ff0000;
+}
+
+button {
+	border:0;
+}

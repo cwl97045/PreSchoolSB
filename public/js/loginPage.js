@@ -1,11 +1,18 @@
 $(document).ready(function () {
   loginPage.init();
+  initKeyUpModules(registerKeyUpModule, loginKeyUpModule, validate ,'[name="loguser"]', '[name="logpass"]', '[name="username"]', '[name="firstName"]','[name="lastName"]',
+	'[name="age"]', '[name="password"]','[name="conPassword"]', '[name="location"]' ).init();
   $('#login').click(function () {
-    var loginInfo = loginPage.getLoginInfo('[name="loguser"]', '[name="logpass"]'),
+    var elementArray = validate.getAllVisibleFields('input');
+    if (validate.checkIfAllElementsAreFilled(elementArray)){
+      var loginInfo = loginPage.getLoginInfo('[name="loguser"]', '[name="logpass"]'),
       loginUser = loginPage.ajaxCall('POST', '/login', loginInfo);
-    loginUser.done(function (data) {
-      console.log(data);
-    });
+        loginUser.done(function (data) {
+          console.log(data);
+      });
+    } else {
+      //Display an error Message
+    }
   });
   $('#register').click(function () {
     loginPage.showHide('#registerForm', '#loginForm');
@@ -16,7 +23,6 @@ $(document).ready(function () {
   $('#registerSubmit').click(function () {
     var newUser = user.newUser('[name="username"]', '[name="firstName"]','[name="lastName"]',
 	'[name="age"]', '[name="password"]','[name="conPassword"]', '[name="gender"]:checked', '[name="location"]');
-    console.log(newUser);
 
     var registerUser = loginPage.ajaxCall('POST', '/user', newUser);
     registerUser.done(function (data) {

@@ -1,4 +1,4 @@
-var chai = require('chai'),frontEndValidate = require('../public/js/valid.js').validateModule;
+var chai = require('chai'),frontEndValidate = require('../public/js/valid.js').validate;
 var expect = chai.expect;
 
 
@@ -33,7 +33,16 @@ describe('Front-End validation tests', function (){
     });
     it('Should return false on invalid email', function () {
       expect(frontEndValidate.checkEmail('13412341234d@fadfadfadf')).to.be.false;
-      expect(frontEndValidate.checkEmail('Harrpotter.com')).to.be.false
+      expect(frontEndValidate.checkEmail('Harrpotter.com')).to.be.false;
+    });
+  });
+  describe('Basic Valid input', function (){
+    it('Should return true on valid input', function (){
+	  expect(frontEndValidate.basicValidInput('Two')).to.be.true;
+	  expect(frontEndValidate.basicValidInput(1)).to.be.true;
+    });
+    it('Shoud return false on invalid input', function (){
+      expect(frontEndValidate.basicValidInput()).to.be.false;
     });
   });
 });

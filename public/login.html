@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div id="loginForm">
-		<input  name="loguser" type="text" placeholder="username"/> <br />
+		<input name="loguser" type="text" placeholder="username"/> <br />
 		<input name="logpass" type="password" placeholder="password"> <br />	
 		<button id="login">Login</button>
 		<button id="register">Register</button>
 	</div>
 	<div id="registerForm">
 		<label> Username<br/>
-			<input name="username" type="text"><br />
+			<input  name="username" type="text"><br />
 		</label>
 		<label> First Name<br/>
-			<input name="firstName" type="text"><br />
+			<input class="required" name="firstName" type="text"><br />
 		</label>	
 		<label> Last Name<br/>
 			<input name="lastName" type="text"><br />
@@ -40,6 +41,8 @@
 		<button id="registerSubmit">Register</button>
 	</div>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/valid.js"></script>
+<script src="js/keyUp.js"></script>
 <script src="js/loginAjax.js"></script>
 <script src="js/loginPage.js"></script>
 </body>

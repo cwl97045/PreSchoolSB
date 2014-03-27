@@ -34,6 +34,3 @@ var user = {
     return user;
   }
 };
-
-
-
