@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div id="loginForm">
+	<div id="loginForm" class="col-5 form">
 		<input name="loguser" type="text" placeholder="username"/> <br />
 		<input name="logpass" type="password" placeholder="password"> <br />	
 		<button id="login">Login</button>
 		<button id="register">Register</button>
+		<span  id="logErr" class="errorMes"></span>
 	</div>
-	<div id="registerForm">
+	<div id="registerForm" class="form">
 		<label> Username<br/>
 			<input  name="username" type="text"><br />
 		</label>
@@ -44,6 +46,7 @@
 <script src="js/valid.js"></script>
 <script src="js/keyUp.js"></script>
 <script src="js/loginAjax.js"></script>
+<script src="js/click.js"></script>
 <script src="js/loginPage.js"></script>
 </body>
 </html>

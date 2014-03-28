@@ -9,3 +9,11 @@ input {
 button {
 	border:0;
 }
+
+.col-5{
+	width:20%;
+}
+
+.form {
+  border:1px solid black;
+}

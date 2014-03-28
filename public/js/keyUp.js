@@ -39,6 +39,7 @@ var  registerKeyUpModule = function (validateModule, username, firstName, lastNa
   }
 
   function passwordFieldsInit(validateModule ,password, conPassword) {
+    //Fix this to work better
      $(password).change(function () {
       if(validateModule.twoInputsSame($(this).val(), $(conPassword).val())) {
         $(this).data('valid', true);

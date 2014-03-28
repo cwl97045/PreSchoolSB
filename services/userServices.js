@@ -12,11 +12,11 @@ exports.getAll = function (res) {
 };
 
 /*Creates user */
-exports.createUser = function (firstName, lastName ,username, password, age, sex, location, res) {
+exports.createUser = function (firstName, lastName ,username, password, conPassword , age, sex, location, res) {
   var salt = new Date();
   var saltedPassword = hash(password + salt.getMilliseconds());
   var newUser = new userModel.user(username, firstName, lastName, saltedPassword, age, sex, location, salt.getMilliseconds());
-  if(newUser){
+  if(newUser && (password === conPassword)){
   	userDAO.createUser(newUser, res);
   } else {
   	error.invalidFields(res);

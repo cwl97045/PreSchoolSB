@@ -7,6 +7,7 @@ var validate = (function () {
     return match;
   }
   function checkPassword(input) {
+    console.log(input);
     var valid = (passwordReg.test(input)) ? true : false;
     return valid;
   }
@@ -34,13 +35,18 @@ var validate = (function () {
     return allFilled;
   }
 
+  function areAllFieldsFilled(type){
+    var elementArray = getAllVisibleFields(type);
+    var allFilled = checkIfAllElementsAreFilled(elementArray);
+    return allFilled;
+  }
+
   return {
     twoInputsSame : twoInputsSame,
     checkPassword : checkPassword,
     checkEmail : checkEmail,
     basicValidInput : basicValidInput,
-    getAllVisibleFields : getAllVisibleFields,
-    checkIfAllElementsAreFilled : checkIfAllElementsAreFilled
+    areAllFieldsFilled : areAllFieldsFilled
   };
 
 }());
