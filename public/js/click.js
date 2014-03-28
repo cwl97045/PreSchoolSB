@@ -7,11 +7,11 @@ var loginAction = function (pageModel, validateModule) {
       if(data.status === "200"){
         console.log(data);
       } else {
-        console.log(error);
+        $('#logErr').text('Login failed');  
       }
     });
   } else {
-  //Do Shit
+    $('#logErr').text('Please, fill out all fields');
   }
 };
 

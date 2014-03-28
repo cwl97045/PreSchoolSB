@@ -75,8 +75,8 @@ var  registerKeyUpModule = function (validateModule, username, firstName, lastNa
 
 var initKeyUpModules = function ( registerKeyUpMod,loginKeyMod,validateModule, logusername, logpassword, username, firstName, lastName, age, password, conPassword, location ){
   function init() {
-    var loginKeyUp = loginKeyMod(validateModule, logusername, logpassword);
-    loginKeyUp.init();
+    //var loginKeyUp = loginKeyMod(validateModule, logusername, logpassword);
+    //loginKeyUp.init();
     var regKeyUp = registerKeyUpMod(validateModule, username, firstName, lastName, age, password, conPassword, location);
     regKeyUp.init();
   }

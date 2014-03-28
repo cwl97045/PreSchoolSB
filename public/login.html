@@ -7,13 +7,17 @@
 </head>
 <body>
 	<div id="loginForm" class="col-5 form">
-		<input name="loguser" type="text" placeholder="username"/> <br />
-		<input name="logpass" type="password" placeholder="password"> <br />	
-		<button id="login">Login</button>
-		<button id="register">Register</button>
-		<span  id="logErr" class="errorMes"></span>
+		<div class="col-1">
+			<input  class="col-1 bottomSpace inputField"name="loguser" type="text" placeholder="username"/> <br />
+			<input class="col-1 bottomSpace inputField" name="logpass" type="password" placeholder="password"> <br />
+		</div>	
+		<div class="col-1 bottomSpace" >	
+			<button class="col-2 btn" id="login">Login</button>
+			<button class="col-2 btn" id="register">Register</button>
+		</div>
+		<span id="logErr" class="errorMes"></span>
 	</div>
-	<div id="registerForm" class="form">
+	<div id="registerForm" class="col-5 form">
 		<label> Username<br/>
 			<input  name="username" type="text"><br />
 		</label>

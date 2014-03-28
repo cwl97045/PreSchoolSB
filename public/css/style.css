@@ -2,18 +2,70 @@ input {
 	border :0;
 }
 
+body{
+	background-color:#16a085;
+}
+
+.inputField{
+	border-radius: 2px;
+}
+
+.errorMes {
+	color:#ff0000;
+}
+
+.topSpace{
+	margin-top:10000px;
+}
+
 .fieldError {
 	border:.2px solid #ff0000;
 }
 
+.bottomSpace {
+	margin-bottom: 5px;
+}
+
 button {
 	border:0;
+	background-color: #2980b9;
+	border-radius: 2px;
+}
+
+
+.col-1{
+	width:100%;
 }
 
 .col-5{
 	width:20%;
 }
 
-.form {
-  border:1px solid black;
+.col-2{
+	width:49%;
 }
+
+.form {
+ margin:auto;
+ padding-top:24px;
+ padding:20px; 
+ min-width: 249px;
+ background-color: #1abc9c;
+ border-radius:3px;
+ position:absolute;
+ left:0;
+ right:0;
+ margin-top:100px;
+ text-align: center;
+ border:1px solid #2c3e50;
+ box-shadow: 1px 2px black
+}
+
+.centered {
+	position : fixed;
+	top:50%;
+	bottom:50%;
+	margin-top: -50px;
+	margin-left: -100px; 
+}
+

@@ -12,8 +12,8 @@ exports.createUser = function (req, res) {
 	age = req.body.age, sex = req.body.sex, conPassword = req.body.conPassword, 
 	location = req.body.location;
 
-	if (username && lastName && firstName && password && age && sex && location){ 
-	  userServices.createUser(firstName, lastName, username, password, conPassword, age, sex,location, res);
+	if (username && lastName && firstName && password && age && sex && location) { 
+      userServices.createUser(firstName, lastName, username, password, conPassword, age, sex,location, res);
 	} else {
 		error.invalidFields(res);
 	}

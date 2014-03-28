@@ -51,10 +51,11 @@ exports.searchUsersByName = function (query, res){
 
 exports.getUserByUserName = function (username, res, callback){
 	var user;
+	var err;
 	connection.query('SELECT * FROM users WHERE username= ?', username, function (err, result){
 		if(err){		
-			var error = JSON.parse(JSON.stringify(err));
-			res.send({status : '300', Message : error['code']});
+			error = JSON.parse(JSON.stringify(err));
+			callback(err);
 		} else {
 			user = result[0];
 			callback(user);

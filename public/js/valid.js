@@ -46,7 +46,9 @@ var validate = (function () {
     checkPassword : checkPassword,
     checkEmail : checkEmail,
     basicValidInput : basicValidInput,
-    areAllFieldsFilled : areAllFieldsFilled
+    areAllFieldsFilled : areAllFieldsFilled,
+    getAllVisibleFields : getAllVisibleFields,
+    checkIfAllElementsAreFilled : checkIfAllElementsAreFilled
   };
 
 }());
